@@ -99,14 +99,34 @@
 									To cover up the algorithm and data structure part of this appication, I have implemented two popular sorting algorithm
 									i.e. merge sort and quick sort. Merge sort and quick sort both works on the principle of divide and conquer, but they 
 									have their own benefits and drawback. The worst-case complexity of merge sort is O (n log n) whereas quick sort is 
-									O (n^2). The main advantage of merge sort is that it works well on any type of data sets regardless of size. 
+									O (n<sup>2</sup>). The main advantage of merge sort is that it works well on any type of data sets regardless of size. 
 									Quick sort cannot work well with large datasets, but it does not require any additional storage. In this application, 
 									item data will be loaded into a list from database and then sorted using those sorting algorithms. 
 								</p>
 								<p>
 									All the data in this application are stored in MySQL database and the connection between the application and database 
 									is done using JDBC driver. Here, I have injected hibernate dependency to map java class with the table in the database.
-									
+									In my database, there are four table users, roles, user_roles, and items. Due to the many-many relationship between
+									and role table, I have created another table user_roles which is the bridge between the two tables. I have also extended
+									JPARepository in this application to perform CRUD operation on user and item data. 
+								</p>
+								<p>
+									While creating and modifying this artifact I have learned so much. Here, I learned to configure spring project using annotation
+									based configureation. From bean validation to entity mapping, everything is done using annotation which is much easier and 
+									faster than writing bunch of code for user input validation and entity mapping. I also learned to chose the data type that
+									works fine with differnet sorting algorithms. I also learned about java.lang.comparable interface whcih provide compareTo() method
+									to compare two string.
+								</p>
+								<p>
+									The challenges I faced while developing this artifact is in implementing the spring security for user authentication and 
+									authorization. I have never used spring security before this project, so I did lots of research and followed spring security 
+									documentation. Finally, I was able to implement user login and logout using spring security after going through documentation 
+									and some YouTube video. The main challenge that I face while implementing merge sort is that, while sorting item on alphabetical
+									order using merge sort, Item name started with upper-case and lower-case alphabet appears in two different orders. For instance,
+									item name started with upper-case (H) and lower case (h) does not comes simultaneously. In the ASCII chart, decimal value 
+									for H is 72, L is 76 and h is 104. So, the item in sorted list appear in the order of H, L, h which does not seems good. 
+									Finally, I figure out the problem and converted the item name to lower-case only while comparing the names. Thereafter, 
+									it works as I intended to do. Overall, it was a nice experience creating and modifying this artifact. 
 								</p>
 							</article>
 							<!--
